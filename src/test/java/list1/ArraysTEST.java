@@ -5,6 +5,7 @@ import com.sdajava.java8problems.CollectionUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 import static org.hamcrest.core.Is.is;
@@ -58,5 +59,11 @@ public class ArraysTEST {
     public void shouldRemoveConsecutiveDuplicatesInAList(){
         List<String> compressedList = ArrayExec.compress(asList("a","a","b","b", "a"));
         assertThat(compressedList, contains("a","b"));
+    }
+
+    @Test
+    public void shouldDuplicateElementsInAList()throws Exception{
+        List<String> duplicates = ArrayExec.duplicate(Arrays.asList("a","b","c","d"),3);
+        assertThat(duplicates, contains("a","a","a","b","b","b","c","c","c","d","d","d"));
     }
 }
