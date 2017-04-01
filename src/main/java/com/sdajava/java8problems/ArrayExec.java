@@ -62,5 +62,18 @@ public class ArrayExec {
         }    return newList;
     }
 
+    public static <T> List<T> duplicatesWithStream (List<T> list , int n){
+        return list.stream().flatMap(e -> Collections.nCopies(n, e).stream()).collect(Collectors.toList());
+    }
 
+    public static <T>List<T> dropEveryNth(List<T> list, int n) {
+        List<T> newList = new LinkedList<T>();
+
+         for(int i = 0; i < list.size(); i++){
+            if ((i+1) % n != 0) {
+              newList.add(list.get(i));
+             }
+         }
+         return newList;
+    }
 }

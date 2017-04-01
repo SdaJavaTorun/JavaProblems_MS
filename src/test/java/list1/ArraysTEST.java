@@ -30,8 +30,8 @@ public class ArraysTEST {
     public void shouldFindLastElementOfLinkedList(){
         //LinkedList<String> list = new LinkedList<String>(Arrays.asList("a","b","c")); //1. sposób tworzenia listy
       //  assertThat(ArrayExec.lastElementOfALinkedList(list),is(equalTo("c"))); //1. sposób testu
-        LinkedList<String> list =  CollectionUtils.lastElementOfALinkedList("a","b","c","d"); //2. sposób tworzenia listyassertEquals("c", ArrayExec.lastElementOfALinkedList(list)); //2.sposób testu
-
+        LinkedList<String> list =  CollectionUtils.lastElementOfALinkedList("a","b","c","d"); //2. sposób tworzenia listy
+        assertEquals("d", ArrayExec.lastElementOfALinkedList(list)); //2.sposób testu
     }
 
     @Test
@@ -66,4 +66,10 @@ public class ArraysTEST {
         List<String> duplicates = ArrayExec.duplicate(Arrays.asList("a","b","c","d"),3);
         assertThat(duplicates, contains("a","a","a","b","b","b","c","c","c","d","d","d"));
     }
+    @Test
+    public void shouldDropEveryNthElement() throws Exception {
+        List<String> result = ArrayExec.dropEveryNth(Arrays.asList("a", "b", "c", "d", "e", "f"), 2);
+        assertThat(result, contains("a", "c", "e" ));
+    }
+
 }
